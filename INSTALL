@@ -1,0 +1,11 @@
+Build with:
+yasm -o fixsm712.com fixsm712.asm
+
+Run with:
+fixsm712
+mode con cols=80
+
+The TSR does not support an unload feature; reboot to remove it from memory.
+
+The TSR works with upper memory blocks (lh fixsm712).
+

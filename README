@@ -1,0 +1,23 @@
+FIXSM712
+
+Copyright (C) 2016 Jacob Thompson <jakethompson1@gmail.com>
+
+This is an MS-DOS TSR that fixes up the configuration of the Silicon
+Motion SM712 (aka LynxEM+) graphics chip, which is the onboard graphics chip
+for ESA-486 motherboards (http://www.esapcsolutions.com/).
+
+The SM712 appears to be a laptop-oriented chip designed for driving an LCD.
+In its default configuration, it upscales all video outputs to 800x600
+resolution.
+
+When used with a non-800x600 LCD, or any CRT monitor, this only serves to
+distort the display. The purpose of this TSR is to re-program the SM712
+to output at native resolution following all INT 10h video mode changes,
+per the instructions given in the datasheet 
+(https://www.usbid.com/assets/datasheets/A8/sm712g.pdf).
+
+Currently only text mode and 640x480x16 graphics mode are tested to work
+reliably. The output may be fuzzy and require a good multisync monitor or
+LCD as the recommendations in the datasheet involve setting custom dot-
+clock frequencies.
+
